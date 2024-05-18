@@ -49,6 +49,7 @@ body {
 .calculator .screen__operation {
   text-align: right;
   letter-spacing: 1px;
+  overflow-x: auto;
 }
 .calculator .screen__result-container {
   display: flex;
@@ -77,6 +78,9 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
 }
+.calculator .keyboard__button.clear {
+  color: #ef2d27;
+}
 .calculator .keyboard__button.operator {
   color: #2877ca;
 }
@@ -85,6 +89,9 @@ body {
   color: #fff;
   cursor: pointer;
   transform: scale(1.1);
+}
+.calculator .keyboard__button:active {
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=styles.css.map */
