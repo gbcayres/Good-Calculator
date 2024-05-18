@@ -1,0 +1,9 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin for-phone-only {
+    @media (max-width: 600px) { @content; }
+}

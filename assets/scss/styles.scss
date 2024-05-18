@@ -1,0 +1,72 @@
+@use 'base';
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.calculator {
+    width: 450px;
+    min-height: 600px;
+    box-shadow: 50px 50px rgba($secondary-color, $alpha: 0.2);
+    transition: 0.3s all;
+
+    @include for-phone-only {
+        width: 350px;
+        box-shadow: 0 50px 0 -15px rgba($secondary-color, $alpha: 0.2);
+    }
+
+   .screen {
+        background-color: $primary-color;
+        height: 30%;
+        padding: $calculator-padding;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 1rem;
+        color: $secondary-color;
+
+        &__operation {
+            text-align: right;
+            letter-spacing: 1px;
+        }
+
+        &__result-container {
+            display: flex;
+            justify-content: space-between;
+            font-size: $result-size;
+
+            .result {
+                font-weight: $bold;
+            }
+        }
+    }
+
+    .keyboard {
+        background-color: $secondary-color;
+        height: 70%;
+        padding: $calculator-padding;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        
+        &__button {
+            font-size: $key-size;
+            @include flex-center;
+            transition: 0.3s ease-in-out;
+
+            &.small-font {
+                font-size: $small-size;
+                font-weight: $bold;
+            }
+
+            &.operator {
+                color: $primary-color;
+            }
+
+            &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+}

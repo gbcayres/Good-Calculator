@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 html, body {
     height: 100%;
@@ -16,9 +17,9 @@ html, body {
 body {
     background-color: $bg-color;
     font-family: $font-family;
-    font-size: $default-size;
-    display: flex;
-    align-items: center;
+    font-size: $small-size;
+    font-weight: $medium;
     flex-direction: column;
+    @include flex-center;
     padding: 1.5rem
 }
