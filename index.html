@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="script.js" defer></script>
+    <script src="js/index.js" defer></script>
     <title>Calculator App</title>
 </head>
 <body>
     <div class="calculator">
         <div class="screen">
-            <p class="screen__operation">100 + 150</p>
+            <p class="screen__operation"></p>
             <div class="screen__result-container">
                 <p>=</p>
-                <p class="result">250</p>
+                <p class="result">0</p>
             </div>
         </div>
         <div class="keyboard">
-            <button class="keyboard__button">C</button>
-            <button class="keyboard__button operator">M</button>
+            <button id="clear" class="keyboard__button clear" >C</button>
+            <button class="keyboard__button operator">**</button>
             <button class="keyboard__button operator">%</button>
             <button class="keyboard__button operator">/</button>
-            <button class="keyboard__button">7</button>
-            <button class="keyboard__button">8</button>
-            <button class="keyboard__button">9</button>
+            <button class="keyboard__button number">7</button>
+            <button class="keyboard__button number">8</button>
+            <button class="keyboard__button number">9</button>
             <button class="keyboard__button operator">x</button>
-            <button class="keyboard__button">4</button>
-            <button class="keyboard__button">5</button>
-            <button class="keyboard__button">6</button>
+            <button class="keyboard__button number">4</button>
+            <button class="keyboard__button number">5</button>
+            <button class="keyboard__button number">6</button>
             <button class="keyboard__button operator">-</button>
-            <button class="keyboard__button">1</button>
-            <button class="keyboard__button">2</button>
-            <button class="keyboard__button">3</button>
+            <button class="keyboard__button number">1</button>
+            <button class="keyboard__button number">2</button>
+            <button class="keyboard__button number">3</button>
             <button class="keyboard__button operator">+</button>
-            <button class="keyboard__button">.</button>
-            <button class="keyboard__button">0</button>
-            <button class="keyboard__button small-font">DEL</button>
-            <button class="keyboard__button operator">=</button>
+            <button class="keyboard__button number">.</button>
+            <button class="keyboard__button number">0</button>
+            <button id="delete" class="keyboard__button clear small-font">DEL</button>
+            <button id="equals" class="keyboard__button">=</button>
         </div>
     </div>
 </body>
