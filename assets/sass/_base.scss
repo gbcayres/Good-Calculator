@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+html, body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font: inherit;
+}
+
+body {
+    background-color: $bg-color;
+    font-family: $font-family;
+    font-size: $default-size;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem
+}
