@@ -1,47 +1,44 @@
 export default class Calculator {
   constructor() {
-    this.operation = {
-      leftOperand: "",
-      operator: "",
-      rightOperand: "",
-    };
-
-    this.result = "";
+    (this.leftOperand = ""),
+      (this.operator = ""),
+      (this.rightOperand = ""),
+      (this.result = "");
   }
 
   appendNumber(num) {
-    if (this.operation.operator) {
-      this.operation.rightOperand += num;
+    if (this.operator) {
+      this.rightOperand += num;
     } else {
-      this.operation.leftOperand += num;
+      this.leftOperand += num;
     }
   }
 
   setOperator(operator) {
-    if (!this.operation.leftOperand) return;
+    if (!this.leftOperand) return;
 
-    this.operation.operator = operator;
+    this.operator = operator;
   }
 
   compute() {
-    const leftOperand = parseFloat(this.operation.leftOperand);
-    const rightOperand = parseFloat(this.operation.rightOperand);
+    const leftOperand = parseFloat(this.leftOperand);
+    const rightOperand = parseFloat(this.rightOperand);
 
     if (this.validOperands()) {
       this.doProperOperation(leftOperand, rightOperand);
-      this.operation.leftOperand = this.result;
-      this.operation.rightOperand = "";
+      this.leftOperand = this.result;
+      this.rightOperand = "";
     } else {
       throw new Error("Please, check the operands.");
     }
   }
 
   validOperands() {
-    return this.operation.leftOperand && this.operation.rightOperand;
+    return this.leftOperand && this.rightOperand;
   }
 
   doProperOperation(leftOperand, rightOperand) {
-    switch (this.operation.operator) {
+    switch (this.operator) {
       case "+":
         this.result = leftOperand + rightOperand;
         break;
@@ -66,26 +63,23 @@ export default class Calculator {
   }
 
   reset() {
-    this.operation = {
-      leftOperand: "",
-      operator: "",
-      rightOperand: "",
-    };
-
-    this.result = "0";
+    (this.leftOperand = ""),
+      (this.operator = ""),
+      (this.rightOperand = ""),
+      (this.result = "0");
   }
 
   deleteLast() {
-    if (this.operation.rightOperand) {
-      this.operation.rightOperand = "";
-    } else if (this.operation.operator) {
-      this.operation.operator = "";
-    } else if (this.operation.leftOperand) {
-      this.operation.leftOperand = "";
+    if (this.rightOperand) {
+      this.rightOperand = "";
+    } else if (this.operator) {
+      this.operator = "";
+    } else if (this.leftOperand) {
+      this.leftOperand = "";
     }
   }
 
   getOperation() {
-    return `${this.operation.leftOperand} ${this.operation.operator} ${this.operation.rightOperand}`;
+    return `${this.leftOperand} ${this.operator} ${this.rightOperand}`;
   }
 }
