@@ -84,10 +84,6 @@ export default class Calculator {
     this.result = "0";
   }
 
-  getOperation() {
-    return `${this.operation.leftOperand} ${this.operation.operator} ${this.operation.rightOperand}`;
-  }
-
   deleteLast() {
     if (this.operation.rightOperand) {
       this.operation.rightOperand = "";
@@ -96,5 +92,9 @@ export default class Calculator {
     } else if (this.operation.leftOperand) {
       this.operation.leftOperand = "";
     }
+  }
+
+  getOperation() {
+    return `${this.operation.leftOperand} ${this.operation.operator} ${this.operation.rightOperand}`;
   }
 }

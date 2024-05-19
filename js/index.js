@@ -17,8 +17,7 @@ function handleEqualsClick() {
     calculator.compute();
     updateScreen();
   } catch (error) {
-    $error.innerHTML = error.message;
-    $error.classList.remove("hidden");
+    console.log(error.message);
   }
 }
 
@@ -35,7 +34,6 @@ function handleDeleteClick() {
 function updateScreen() {
   $result.innerHTML = calculator.result;
   $operation.innerHTML = calculator.getOperation();
-  $error.classList.add("hidden");
   console.log(calculator);
 }
 
@@ -59,7 +57,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 const $operation = document.querySelector(".screen__operation");
 const $result = document.querySelector(".result");
-const $error = document.querySelector(".error");
 
 const $numButtons = document.querySelectorAll(".number");
 const $operationButtons = document.querySelectorAll(".operator");
