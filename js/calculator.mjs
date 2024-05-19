@@ -20,16 +20,6 @@ export default class Calculator {
   setOperator(operator) {
     if (!this.operation.leftOperand) return;
 
-    if (this.operation.rightOperand) {
-      this.compute();
-    }
-
-    if (this.operation.operator) {
-      this.operation.operator = operator;
-      this.operation.rightOperand = "";
-      return;
-    }
-
     this.operation.operator = operator;
   }
 
@@ -40,6 +30,7 @@ export default class Calculator {
     if (this.validOperands()) {
       this.doProperOperation(leftOperand, rightOperand);
       this.operation.leftOperand = this.result;
+      this.operation.rightOperand = "";
     } else {
       throw new Error("Please, check the operands.");
     }
