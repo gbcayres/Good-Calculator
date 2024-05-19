@@ -1,43 +1,68 @@
-$operation = document.querySelector(".screen__operation");
-$result = document.querySelector(".result");
+import Calculator from "./calculator.mjs";
 
-$buttons = document.querySelectorAll(".number, .operator");
-$clearButton = document.querySelector("#clear");
-$deleteButton = document.querySelector("#delete");
-$equalsButton = document.querySelector("#equals");
+const calculator = new Calculator();
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  $buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      append(event.target.innerHTML);
-    });
-  });
-
-  $clearButton.addEventListener("click", clear);
-  $deleteButton.addEventListener("click", removeChar);
-  $equalsButton.addEventListener("click", compute);
-});
-
-function compute() {
-  result = eval($operation.innerHTML);
-  console.log(result);
+function handleNumberClick(num) {
+  calculator.appendNumber(num);
+  updateScreen();
 }
 
-function append(char) {
-  if (!isNaN(char) || char === ".") {
-    $operation.innerHTML += char;
-  } else {
-    $operation.innerHTML += ` ${char} `;
+function handleOperatorClick(operator) {
+  calculator.setOperator(operator);
+  updateScreen();
+}
+
+function handleEqualsClick() {
+  try {
+    calculator.compute();
+    updateScreen();
+  } catch (error) {
+    $error.innerHTML = error.message;
+    $error.classList.remove("hidden");
   }
 }
 
-function clear() {
-  $operation.innerHTML = "";
-  $result.innerHTML = "0";
+function handleClearClick() {
+  calculator.reset();
+  updateScreen();
 }
 
-function removeChar() {
-  const lastChar = $operation.innerHTML.length - 1;
-  const newOperations = $operation.innerHTML.slice(0, lastChar).trim();
-  $operation.innerHTML = newOperations;
+function handleDeleteClick() {
+  calculator.deleteLast();
+  updateScreen();
 }
+
+function updateScreen() {
+  $result.innerHTML = calculator.result;
+  $operation.innerHTML = calculator.getOperation();
+  $error.classList.add("hidden");
+  console.log(calculator);
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  $numButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      handleNumberClick(button.innerHTML);
+    });
+  });
+
+  $operationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      handleOperatorClick(button.innerHTML);
+    });
+  });
+
+  $equalsButton.addEventListener("click", handleEqualsClick);
+  $clearButton.addEventListener("click", handleClearClick);
+  $deleteButton.addEventListener("click", handleDeleteClick);
+});
+
+const $operation = document.querySelector(".screen__operation");
+const $result = document.querySelector(".result");
+const $error = document.querySelector(".error");
+
+const $numButtons = document.querySelectorAll(".number");
+const $operationButtons = document.querySelectorAll(".operator");
+const $clearButton = document.querySelector("#clear");
+const $deleteButton = document.querySelector("#delete");
+const $equalsButton = document.querySelector("#equals");
