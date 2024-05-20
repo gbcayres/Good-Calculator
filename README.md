@@ -20,4 +20,4 @@ Instead of using `eval()` to execute a big mathematical expression, this Calcula
 ***
 
 ## Live Demo
-Here is the link to test and use the <a href="https://gbcayres.github.io/Good-Calculator-App/">Good Calculator</a>
+Here is the link to test and use the <a href="https://gbcayres.github.io/Good-Calculator/">Good Calculator</a>
