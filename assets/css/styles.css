@@ -55,6 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 3rem;
+  overflow-x: auto;
 }
 .calculator .screen__result-container .result {
   font-weight: 700;

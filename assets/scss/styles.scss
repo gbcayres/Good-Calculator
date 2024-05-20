@@ -33,6 +33,7 @@
             display: flex;
             justify-content: space-between;
             font-size: $result-size;
+            overflow-x: auto;
 
             .result {
                 font-weight: $bold;
