@@ -1,6 +1,4 @@
 # A Good Calculator
-
-<<<<<<< HEAD
 Many JavaScript developers have as their very first project a simple calculator site as this one. I've waited create one because i wanted to do something diferent.
 
 While researching, i found numerous calculator projects of other beginner devs that used `eval()` with the value obtained by a input or text element. This can be imprecise due to issues with math precedence and dangerous because `eval()` attempts to execute JavaScript code represented by a string. If this string comes from external sources like a user input, it creates vulnerabilities for code injection.
@@ -23,8 +21,3 @@ Instead of using `eval()` to execute a big mathematical expression, this Calcula
 
 ## Live Demo
 Here is the link to test and use the <a href="https://gbcayres.github.io/Calculator-App/">Good Calculator</a>
-=======
-Many JavaScript developers have as they very first project a simple calculator site as this one. I've waited to do it because i wanted to do something diferent.
-
-While researching, i found numerous calculator projects of other beginner devs that used "eval()" with the value gotten by a input or text. It can be imprecise and dangerous because "eval()" just try to execute a javascript code represented by a string. Mainly if
->>>>>>> 73fa9bc6a5fbdfb99a8de2dbba744d8357b42962
